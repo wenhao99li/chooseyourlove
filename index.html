@@ -1,20 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机问卷跳转</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #555;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .message {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
 <body>
-<script>
-  // 定义三个二维码图片地址
-  const qrUrls = [
-    "https://www.wjx.cn/vm/YesnL6t.aspx#",
-    "https://www.wjx.cn/vm/YDytsoe.aspx#",
-    "https://www.wjx.cn/vm/rlbmZBm.aspx#"
-  ];
-  
-  // 随机选择一个地址
-  const randomIndex = Math.floor(Math.random() * qrUrls.length);
-  const targetUrl = qrUrls[randomIndex];
-  
-  // 跳转到对应图片
-  window.location.href = targetUrl;
-</script>
+    <div class="message">
+        <h1>正在为您随机分配问卷...</h1>
+        <p>请稍候，即将跳转到您的专属问卷。</p>
+        <p>如果长时间未跳转，请尝试<a href="javascript:void(0);" onclick="randomRedirect()">点击这里</a>。</p>
+    </div>
+
+    <script>
+        // 在这里替换成你的三个问卷的实际URL链接
+        const surveyUrls = [
+            'https://www.wjx.cn/vm/xxxxA.aspx', // 替换为你的第一个问卷链接
+            'https://www.wjx.cn/vm/xxxxB.aspx', // 替换为你的第二个问卷链接
+            'https://www.wjx.cn/vm/xxxxC.aspx'  // 替换为你的第三个问卷链接
+        ];
+
+        function randomRedirect() {
+            // 随机选择一个索引
+            const randomIndex = Math.floor(Math.random() * surveyUrls.length);
+            // 获取对应的问卷URL
+            const selectedSurveyUrl = surveyUrls[randomIndex];
+            // 执行跳转
+            window.location.href = selectedSurveyUrl;
+            console.log('即将跳转到:', selectedSurveyUrl); // 用于调试
+        }
+
+        // 页面加载完成后立即执行随机跳转
+        // 使用 setTimeout 稍微延迟一下，给用户一个“正在跳转”的提示
+        window.onload = function() {
+            setTimeout(randomRedirect, 500); // 延迟0.5秒
+        };
+    </script>
 </body>
 </html>
