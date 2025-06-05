@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+  // 定义三个二维码图片地址
+  const qrUrls = [
+    "https://www.wjx.cn/vm/YesnL6t.aspx#",
+    "https://www.wjx.cn/vm/YDytsoe.aspx#",
+    "https://www.wjx.cn/vm/rlbmZBm.aspx#"
+  ];
+  
+  // 随机选择一个地址
+  const randomIndex = Math.floor(Math.random() * qrUrls.length);
+  const targetUrl = qrUrls[randomIndex];
+  
+  // 跳转到对应图片
+  window.location.href = targetUrl;
+</script>
+</body>
+</html>
